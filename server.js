@@ -12,12 +12,12 @@ app.engine('.hbs', exphbs({extname: '.hbs', defaultLayout: 'main'}));
 app.set('view engine', '.hbs');
 
 app.get('/', (req, res) => {
-  res.send('smoke test');
+  res.redirect(302, '/home');
 });
 
-app.use('/home', home);
-app.use('/about', about);
-app.use('/contact', contact);
+app.use(home);
+app.use(about);
+app.use(contact);
 
 app.listen(PORT, () => {
   console.log(`Server started on port: ${PORT}`);
